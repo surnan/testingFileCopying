@@ -26,7 +26,6 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return tempButton
     }()
     
-    
     var showImageSavedButton: UIButton = {
         var tempButton = UIButton()
         tempButton.setTitle("Show Image", for: .normal)
@@ -39,6 +38,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     var savedImageView: UIView = {
         var tempView = UIView()
         tempView.backgroundColor = UIColor.yellow
+        tempView.isHidden = true
         tempView.translatesAutoresizingMaskIntoConstraints = false
         return tempView
     }()
@@ -52,7 +52,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         return paths[0]
     }
     
-    func fileCopy(){
+    func makeFolderIfNecessary(){
         let fileManager = FileManager.default
         let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask)  //[URL]
         
@@ -66,18 +66,18 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             try fileManager.createDirectory(atPath: destPathString, withIntermediateDirectories: false, attributes: nil)
             print("\nDIRECTORY 'Media' CREATED")
         } catch {
-            print("did not create directory")
+            return
         }
         
-        let finalSourceUNC = sourcePathUNC.appendingPathComponent("testFile.rtf")
-        let finalDestUNC = destPathUNC.appendingPathComponent("testFile.rtf")
-        
-        do {
-            try fileManager.copyItem(atPath: finalSourceUNC.path, toPath: finalDestUNC.path)
-            print("!!!!!!DID A COPY !!!!!!")
-        } catch let saveERR {
-            print("FAIL --> \(saveERR)")
-        }
+//        let finalSourceUNC = sourcePathUNC.appendingPathComponent("testFile.rtf")
+//        let finalDestUNC = destPathUNC.appendingPathComponent("testFile.rtf")
+//
+//        do {
+//            try fileManager.copyItem(atPath: finalSourceUNC.path, toPath: finalDestUNC.path)
+//            print("!!!!!!DID A COPY !!!!!!")
+//        } catch let saveERR {
+//            print("FAIL --> \(saveERR)")
+//        }
     } //func fileCopy()
     
     
@@ -87,7 +87,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     @objc func handleShowImageSavedButton(){
-        present(myImagePicker, animated: true)
+//        present(myImagePicker, animated: true)
+        savedImageView.isHidden = false
     }
     
     func setupUI() {
@@ -102,22 +103,62 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
             showImageSavedButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             showImageSavedButton.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
             
-            savedImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
-            savedImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.5),
+            savedImageView.widthAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
+            savedImageView.heightAnchor.constraint(equalTo: view.widthAnchor, multiplier: 0.75),
             savedImageView.topAnchor.constraint(equalTo: showImageSavedButton.bottomAnchor, constant: 50),
             savedImageView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
             ])
     }
     
+    //MARK:- Image Picker Controller
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        
+        
+        let imageURL = info[UIImagePickerControllerImageURL] as! URL
+        
+        let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  //[URL]
+        let destPathUNC = documentsURL[0].appendingPathComponent("Media")           //URL
+//        let destPathString = documentsURL[0].appendingPathComponent("Media").path   //string
+        
+        
+        let imageFileName = imageURL.lastPathComponent
+        
+//        let finalDestUNC = destPathUNC.appendingPathComponent("3E59691E-831F-4A3F-B3B6-4BD1909019BE.png") //fileName
+        
+        let finalDestUNC = destPathUNC.appendingPathComponent(imageFileName) //fileName
+
+        
+        do {
+            try FileManager.default.copyItem(atPath: imageURL.path, toPath: finalDestUNC.path)
+            print("!!!!!!DID A COPY !!!!!!")
+        } catch let saveERR {
+            print("FAIL --> \(saveERR)")
+        }
+        
+        
+        print("image picked")
+        
+        dismiss(animated: true, completion: nil)
+        
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        dismiss(animated: true, completion: nil)
+    }
     
     
     
+    
+    //MARK:- Built-in Swift Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
+
+        myImagePicker.delegate = self
         openImagePickerButton.addTarget(self, action: #selector(handleOpenImagePickerButton), for: .touchDown)
         showImageSavedButton.addTarget(self, action: #selector(handleShowImageSavedButton), for: .touchDown)
         
+        makeFolderIfNecessary()
         setupUI()
         //        fileCopy()
         
