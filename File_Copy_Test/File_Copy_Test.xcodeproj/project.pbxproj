@@ -14,6 +14,8 @@
 		84527BE92106CCD400F33C95 /* TaskListVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BE82106CCD400F33C95 /* TaskListVC.swift */; };
 		84527BED2106D02600F33C95 /* TaskListVC+TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BEC2106D02600F33C95 /* TaskListVC+TableViewController.swift */; };
 		84527BEF2106D08F00F33C95 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BEE2106D08F00F33C95 /* TaskCell.swift */; };
+		84527BF221077FBF00F33C95 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BF121077FBF00F33C95 /* UIColor+theme.swift */; };
+		84527BF42107901E00F33C95 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BF32107901E00F33C95 /* UINavigationController+Extension.swift */; };
 		84FBCD8E21052897006178E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD8D21052897006178E6 /* AppDelegate.swift */; };
 		84FBCD9021052897006178E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD8F21052897006178E6 /* ViewController.swift */; };
 		84FBCD9521052898006178E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FBCD9421052898006178E6 /* Assets.xcassets */; };
@@ -28,6 +30,8 @@
 		84527BE82106CCD400F33C95 /* TaskListVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListVC.swift; sourceTree = "<group>"; };
 		84527BEC2106D02600F33C95 /* TaskListVC+TableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "TaskListVC+TableViewController.swift"; sourceTree = "<group>"; };
 		84527BEE2106D08F00F33C95 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
+		84527BF121077FBF00F33C95 /* UIColor+theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
+		84527BF32107901E00F33C95 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
 		84FBCD8A21052897006178E6 /* File_Copy_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = File_Copy_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FBCD8D21052897006178E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FBCD8F21052897006178E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -86,6 +90,15 @@
 			path = ViewController;
 			sourceTree = "<group>";
 		};
+		84527BF021077F9F00F33C95 /* Extras */ = {
+			isa = PBXGroup;
+			children = (
+				84527BF121077FBF00F33C95 /* UIColor+theme.swift */,
+				84527BF32107901E00F33C95 /* UINavigationController+Extension.swift */,
+			);
+			path = Extras;
+			sourceTree = "<group>";
+		};
 		84FBCD8121052897006178E6 = {
 			isa = PBXGroup;
 			children = (
@@ -109,6 +122,7 @@
 				84527BEA2106CF5E00F33C95 /* TaskList */,
 				84FBCD9921052898006178E6 /* Info.plist */,
 				84527BE12106AD0D00F33C95 /* Core_Data */,
+				84527BF021077F9F00F33C95 /* Extras */,
 				84527BE72106AEBC00F33C95 /* Support_Files */,
 			);
 			path = File_Copy_Test;
@@ -186,7 +200,9 @@
 			files = (
 				84527BE02106A87D00F33C95 /* ViewController+UI.swift in Sources */,
 				84527BDE2106A7CE00F33C95 /* ViewController+Variables.swift in Sources */,
+				84527BF42107901E00F33C95 /* UINavigationController+Extension.swift in Sources */,
 				84527BE92106CCD400F33C95 /* TaskListVC.swift in Sources */,
+				84527BF221077FBF00F33C95 /* UIColor+theme.swift in Sources */,
 				84527BE42106AD2E00F33C95 /* CoreDataDB.xcdatamodeld in Sources */,
 				84FBCD9021052897006178E6 /* ViewController.swift in Sources */,
 				84FBCD8E21052897006178E6 /* AppDelegate.swift in Sources */,

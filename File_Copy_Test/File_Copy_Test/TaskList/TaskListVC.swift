@@ -28,9 +28,26 @@ class TaskListVC: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.black
         loadNamesArray()
+        setupNavigationBar()
         tableView.register(TaskCell.self, forCellReuseIdentifier: "myCell")
     }
+    
+    //MARK:- ----NAVIGATION BARS-----
+    func setupNavigationBar(){
+        navigationItem.title = "TASKS"
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Settings", style: .plain, target: self, action: #selector(handleLeftBarButton))
+        
+//        UINavigationBar.appearance().barTintColor = UIColor.lightRed
+//        UINavigationBar.appearance().tintColor = UIColor.white
+    }
+    
+    @objc func handleLeftBarButton(){
+        print("left button selected")
+    }
+    
+    
     
     
 }

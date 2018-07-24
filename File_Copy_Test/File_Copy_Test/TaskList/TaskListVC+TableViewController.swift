@@ -20,13 +20,29 @@ extension TaskListVC {
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let tempCell = UITableViewCell()
-//        tempCell.textLabel?.text = names[indexPath.row]
-        
         let tempCell = tableView.dequeueReusableCell(withIdentifier: "myCell") as! TaskCell
         tempCell.nameLabel.text = names[indexPath.row].name
         tempCell.parentLabel.text = names[indexPath.row].parent
+        
+        if indexPath.row % 2 == 1 {
+            tempCell.backgroundColor = UIColor.teal
+        }
+        
         return tempCell
+    }
+    
+    
+    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+        let editAction = UITableViewRowAction(style: .normal, title: "Edit") { (action, indexPath) in
+            print("action selected")
+        }
+        
+        editAction.backgroundColor = UIColor.blue
+//        editAction.
+        
+        return [editAction]
+        
+        
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
