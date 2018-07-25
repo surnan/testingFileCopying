@@ -45,8 +45,10 @@ extension TaskListVC {
         
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        navigationController?.pushViewController(ViewController(), animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {        
+        let tempViewController = ViewController()
+        tempViewController.taskFolder = names[indexPath.row].name
+        navigationController?.pushViewController(tempViewController, animated: true)
     }
     
 }

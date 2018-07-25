@@ -33,7 +33,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     } //func fileCopy()
     
     
-    //MARK: Ui Stuff
+    //MARK:- Handlers
     @objc func handleOpenImagePickerButton() {
         present(myImagePicker, animated: true)
     }
@@ -41,7 +41,13 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     @objc func handleShowImageSavedButton() {
         savedImageView.isHidden = false
     }
-        
+    
+    @objc func handleLeftBarButtonItem(){
+//        dismiss(animated: true, completion: nil)
+        navigationController?.popViewController(animated: true)
+    }
+    
+    
     //MARK:- Image Picker Controller
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imageURL = info[UIImagePickerControllerImageURL] as! URL
@@ -66,8 +72,19 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
+ 
+    
+    //MARK:- UI Functions
+    func setupNavigationBar(){
+        navigationItem.title = "IMAGES"
+        let titleString = "< " + taskFolder!
+        
+        
+        navigationItem.leftBarButtonItem = UIBarButtonItem(title: titleString, style: .plain, target: self, action: #selector(handleLeftBarButtonItem))//yes
+    }
     
     
+
     //MARK:- Built-in Swift Functions
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -76,6 +93,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         myImagePicker.delegate = self
         openImagePickerButton.addTarget(self, action: #selector(handleOpenImagePickerButton), for: .touchDown)
         showImageSavedButton.addTarget(self, action: #selector(handleShowImageSavedButton), for: .touchDown)
+        setupNavigationBar()
         
         makeFolderIfNecessary()
         setupUI()

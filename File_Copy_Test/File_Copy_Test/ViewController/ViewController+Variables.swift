@@ -9,6 +9,11 @@
 import UIKit
 
 class ViewController: UIViewController{
+    
+    //MARK:- --PRIOR SET VARIABLES--
+    var taskFolder: String?
+    
+    
     //MARK:- --LOCAL VARIABLES--
     var myImagePicker : UIImagePickerController = {
         var tempPicker = UIImagePickerController()
