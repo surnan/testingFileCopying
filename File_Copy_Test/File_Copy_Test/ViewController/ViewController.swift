@@ -23,14 +23,25 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         //        let sourcePathUNC = documentsURL[0]                                         //URL
         //        let sourcePathString = documentsURL[0].path                                 //string
         //        let destPathUNC = documentsURL[0].appendingPathComponent("Media")           //URL
+        print("destPathString = \n\(destPathString)")
         
+        
+        let newDestPathString = documentsURL[0].appendingPathComponent(taskFolder!).path
+        print("NEW destPathString = \n\(newDestPathString)")
+        
+
+        if FileManager.default.fileExists(atPath: newDestPathString){
+            print("YES YES YES")
+        } else {
+            print("NO NO NO")
+        }
         do {
-            try FileManager.default.createDirectory(atPath: destPathString, withIntermediateDirectories: false, attributes: nil)
-            print("\nDIRECTORY 'Media' CREATED")
+            try FileManager.default.createDirectory(atPath: newDestPathString, withIntermediateDirectories: false, attributes: nil)
+            print("\nDIRECTORY --\(newDestPathString)-- CREATED")
         } catch {
             return
         }
-    } //func fileCopy()
+    }
     
     
     //MARK:- Handlers
@@ -52,7 +63,10 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         let imageURL = info[UIImagePickerControllerImageURL] as! URL
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  //[URL]
-        let destPathUNC = documentsURL[0].appendingPathComponent("Media")           //URL
+        
+        
+        let destPathUNC = documentsURL[0].appendingPathComponent(taskFolder!)           //URL
+        //        let destPathUNC = documentsURL[0].appendingPathComponent("Media")           //URL
         //        let destPathString = documentsURL[0].appendingPathComponent("Media").path   //string
         
         let imageFileName = imageURL.lastPathComponent
@@ -65,9 +79,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         } catch let saveERR {
             print("FAIL --> \(saveERR)")
         }
-        
         dismiss(animated: true, completion: nil)
     }
+    
     
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
@@ -78,23 +92,18 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func setupNavigationBar(){
         navigationItem.title = "IMAGES"
         let titleString = "< " + taskFolder!
-        
-        
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: titleString, style: .plain, target: self, action: #selector(handleLeftBarButtonItem))//yes
     }
-    
     
 
     //MARK:- Built-in Swift Functions
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = UIColor.lightGray
-        
         myImagePicker.delegate = self
         openImagePickerButton.addTarget(self, action: #selector(handleOpenImagePickerButton), for: .touchDown)
         showImageSavedButton.addTarget(self, action: #selector(handleShowImageSavedButton), for: .touchDown)
         setupNavigationBar()
-        
         makeFolderIfNecessary()
         setupUI()
     }
