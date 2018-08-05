@@ -32,6 +32,14 @@ extension ViewController {
         do {
             let imageURL = try FileManager.default.contentsOfDirectory(at: taskParentFolderPathURL, includingPropertiesForKeys: properties, options: .skipsHiddenFiles)
             print("image URL = \(imageURL)")
+            
+
+            for eachFile in imageURL {
+                if let tempFile = UIImage(named: eachFile.path)  //named = file Name
+                {
+                    fileImageArray.append(tempFile)
+                }
+            }
         } catch {}
         
         
