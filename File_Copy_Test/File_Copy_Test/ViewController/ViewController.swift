@@ -19,28 +19,27 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     func makeFolderIfNecessary(){
         let documentsURL = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)  //[URL]
-        let destPathString = documentsURL[0].appendingPathComponent("Media").path             //string
+        //        let destPathString = documentsURL[0].appendingPathComponent("Media").path   //string
         //        let sourcePathUNC = documentsURL[0]                                         //URL
         //        let sourcePathString = documentsURL[0].path                                 //string
         //        let destPathUNC = documentsURL[0].appendingPathComponent("Media")           //URL
-        print("destPathString = \n\(destPathString)")
+        //        print("destPathString = \n\(destPathString)")
         
         
         let newDestPathString = documentsURL[0].appendingPathComponent(taskFolder!).path
         print("NEW destPathString = \n\(newDestPathString)")
+        //        if FileManager.default.fileExists(atPath: newDestPathString){
+        //            print("YES YES YES")
+        //        } else {
+        //            print("NO NO NO")
+        //        }
         
-
-        if FileManager.default.fileExists(atPath: newDestPathString){
-            print("YES YES YES")
-        } else {
-            print("NO NO NO")
-        }
         do {
             try FileManager.default.createDirectory(atPath: newDestPathString, withIntermediateDirectories: false, attributes: nil)
             print("\nDIRECTORY --\(newDestPathString)-- CREATED")
-        } catch {
-            return
-        }
+        } catch { print("FOLDER NOT CREATED")}
+//        loadFileArray()
+        loadFileArray2()
     }
     
     
@@ -54,7 +53,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     }
     
     @objc func handleLeftBarButtonItem(){
-//        dismiss(animated: true, completion: nil)
+        //        dismiss(animated: true, completion: nil)
         navigationController?.popViewController(animated: true)
     }
     
@@ -86,7 +85,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         dismiss(animated: true, completion: nil)
     }
- 
+    
     
     //MARK:- UI Functions
     func setupNavigationBar(){
@@ -95,7 +94,7 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: titleString, style: .plain, target: self, action: #selector(handleLeftBarButtonItem))//yes
     }
     
-
+    
     //MARK:- Built-in Swift Functions
     override func viewDidLoad() {
         super.viewDidLoad()

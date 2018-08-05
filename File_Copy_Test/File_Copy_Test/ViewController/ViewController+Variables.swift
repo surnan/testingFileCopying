@@ -40,11 +40,16 @@ class ViewController: UIViewController{
         return tempButton
     }()
     
-    var savedImageView: UIView = {
-        var tempView = UIView()
+    var savedImageView: UIImageView = {
+        var tempView = UIImageView()
         tempView.backgroundColor = UIColor.yellow
         tempView.isHidden = true
         tempView.translatesAutoresizingMaskIntoConstraints = false
         return tempView
     }()
+    
+    var fileImageArray = [UIImage]()
+    
+    
+    
 }
