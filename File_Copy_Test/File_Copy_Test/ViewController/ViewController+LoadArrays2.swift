@@ -39,14 +39,19 @@ extension ViewController {
                 {
                     fileImageArray.append(tempFile)
                     
-                    let tempVC = ImageVC()
-                    tempVC.myImageView = UIImageView()
-                    tempVC.myImageView?.image = tempFile
-                    tempVC.finalImage = tempFile
-                    navigationController?.pushViewController(tempVC, animated: true)
+//                    let tempVC = ImageVC()
+//                    tempVC.myImageView = UIImageView()
+//                    tempVC.myImageView?.image = tempFile
+//                    tempVC.finalImage = tempFile
+//                    navigationController?.pushViewController(tempVC, animated: true)
                     
                 }
             }
+         
+            let tempVC = ImageVC()
+            tempVC.allImages = fileImageArray
+            navigationController?.pushViewController(tempVC, animated: true)
+            
         } catch {}
         
         
