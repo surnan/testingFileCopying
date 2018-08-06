@@ -38,6 +38,13 @@ extension ViewController {
                 if let tempFile = UIImage(named: eachFile.path)  //named = file Name
                 {
                     fileImageArray.append(tempFile)
+                    
+                    let tempVC = ImageVC()
+                    tempVC.myImageView = UIImageView()
+                    tempVC.myImageView?.image = tempFile
+                    tempVC.finalImage = tempFile
+                    navigationController?.pushViewController(tempVC, animated: true)
+                    
                 }
             }
         } catch {}

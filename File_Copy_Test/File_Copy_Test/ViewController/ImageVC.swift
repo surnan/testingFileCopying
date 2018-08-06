@@ -9,12 +9,14 @@
 import UIKit
 
 class ImageVC: ViewController {
-    var theImage: UIImageView?
+    var myImageView: UIImageView?
+    var finalImage: UIImage?
 
     override func viewDidLoad() {
 
 
-        guard let myImage = theImage else {
+        
+        guard let myImage = myImageView else {
             print("================")
             print("====TROUBLE=====")
             print("================")
@@ -22,7 +24,6 @@ class ImageVC: ViewController {
         }
 
         myImage.translatesAutoresizingMaskIntoConstraints = false
-
         view.addSubview(myImage)
 
         myImage.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor).isActive = true
@@ -30,6 +31,6 @@ class ImageVC: ViewController {
         myImage.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor).isActive = true
         myImage.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor).isActive = true
 
-              
+        
     }
 }
