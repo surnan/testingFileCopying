@@ -16,10 +16,10 @@
 		84527BEF2106D08F00F33C95 /* TaskCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BEE2106D08F00F33C95 /* TaskCell.swift */; };
 		84527BF221077FBF00F33C95 /* UIColor+theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BF121077FBF00F33C95 /* UIColor+theme.swift */; };
 		84527BF42107901E00F33C95 /* UINavigationController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BF32107901E00F33C95 /* UINavigationController+Extension.swift */; };
-		849E932021122E0E00D1623F /* ViewController+LoadArrays.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E931F21122E0E00D1623F /* ViewController+LoadArrays.swift */; };
 		849E93222112558500D1623F /* Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E93212112558500D1623F /* Helpers.swift */; };
 		849E93242113A9A800D1623F /* ImageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E93232113A9A800D1623F /* ImageVC.swift */; };
 		849E932621178D4800D1623F /* ViewController+LoadArrays2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E932521178D4800D1623F /* ViewController+LoadArrays2.swift */; };
+		849E9328211863D300D1623F /* imageVC2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E9327211863D300D1623F /* imageVC2.swift */; };
 		84FBCD8E21052897006178E6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD8D21052897006178E6 /* AppDelegate.swift */; };
 		84FBCD9021052897006178E6 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FBCD8F21052897006178E6 /* ViewController.swift */; };
 		84FBCD9521052898006178E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 84FBCD9421052898006178E6 /* Assets.xcassets */; };
@@ -36,10 +36,10 @@
 		84527BEE2106D08F00F33C95 /* TaskCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskCell.swift; sourceTree = "<group>"; };
 		84527BF121077FBF00F33C95 /* UIColor+theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor+theme.swift"; sourceTree = "<group>"; };
 		84527BF32107901E00F33C95 /* UINavigationController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UINavigationController+Extension.swift"; sourceTree = "<group>"; };
-		849E931F21122E0E00D1623F /* ViewController+LoadArrays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+LoadArrays.swift"; sourceTree = "<group>"; };
 		849E93212112558500D1623F /* Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helpers.swift; sourceTree = "<group>"; };
 		849E93232113A9A800D1623F /* ImageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageVC.swift; sourceTree = "<group>"; };
 		849E932521178D4800D1623F /* ViewController+LoadArrays2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+LoadArrays2.swift"; sourceTree = "<group>"; };
+		849E9327211863D300D1623F /* imageVC2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageVC2.swift; sourceTree = "<group>"; };
 		84FBCD8A21052897006178E6 /* File_Copy_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = File_Copy_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		84FBCD8D21052897006178E6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		84FBCD8F21052897006178E6 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -94,9 +94,9 @@
 				84527BDD2106A7CE00F33C95 /* ViewController+Variables.swift */,
 				84527BDF2106A87D00F33C95 /* ViewController+UI.swift */,
 				84FBCD8F21052897006178E6 /* ViewController.swift */,
-				849E931F21122E0E00D1623F /* ViewController+LoadArrays.swift */,
-				849E93232113A9A800D1623F /* ImageVC.swift */,
 				849E932521178D4800D1623F /* ViewController+LoadArrays2.swift */,
+				849E93232113A9A800D1623F /* ImageVC.swift */,
+				849E9327211863D300D1623F /* imageVC2.swift */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -217,7 +217,7 @@
 				84527BE92106CCD400F33C95 /* TaskListVC.swift in Sources */,
 				84527BF221077FBF00F33C95 /* UIColor+theme.swift in Sources */,
 				84527BE42106AD2E00F33C95 /* CoreDataDB.xcdatamodeld in Sources */,
-				849E932021122E0E00D1623F /* ViewController+LoadArrays.swift in Sources */,
+				849E9328211863D300D1623F /* imageVC2.swift in Sources */,
 				84FBCD9021052897006178E6 /* ViewController.swift in Sources */,
 				84FBCD8E21052897006178E6 /* AppDelegate.swift in Sources */,
 				84527BED2106D02600F33C95 /* TaskListVC+TableViewController.swift in Sources */,

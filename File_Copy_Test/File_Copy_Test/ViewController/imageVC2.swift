@@ -1,5 +1,5 @@
 //
-//  ImageVC.swift
+//  ImageVC2.swift
 //  File_Copy_Test
 //
 //  Created by admin on 8/2/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageVC: ViewController {
+class ImageVC2: ViewController {
     var myImageView: UIImageView?
     var finalImage: UIImage?
     
@@ -25,7 +25,7 @@ class ImageVC: ViewController {
     
     var myScrollView: UIScrollView = {
         var tempScrollView = UIScrollView()
-//        tempScrollView.isPagingEnabled = true
+        //        tempScrollView.isPagingEnabled = true
         tempScrollView.backgroundColor = UIColor.red
         tempScrollView.isDirectionalLockEnabled = true
         tempScrollView.bounces = false
@@ -44,22 +44,22 @@ class ImageVC: ViewController {
             tempImageView.isUserInteractionEnabled = true
             tempImageView.image = eachImage
             tempImageView.clipsToBounds = true
-        
-
+            
+            
             tempImageView.contentMode = .scaleAspectFit
             
             
             
             
-//            tempImageView.translatesAutoresizingMaskIntoConstraints = false
-//            tempImageView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
-//            tempImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+            //            tempImageView.translatesAutoresizingMaskIntoConstraints = false
+            //            tempImageView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
+            //            tempImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
             
-            tempImageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-//            tempImageView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
+//            tempImageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
+            //            tempImageView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
             
             
-        
+            
             
             imageStackView.addArrangedSubview(tempImageView)
         }
@@ -72,7 +72,7 @@ class ImageVC: ViewController {
         view.frame = UIScreen.main.bounds
         view.backgroundColor = UIColor.blue
     }
-               
+    
     override func viewDidLoad() {
         setView()
         

@@ -44,18 +44,9 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
     
     
     //MARK:- Handlers
-    @objc func handleOpenImagePickerButton() {
-        present(myImagePicker, animated: true)
-    }
-    
-    @objc func handleShowImageSavedButton() {
-        savedImageView.isHidden = false
-    }
-    
-    @objc func handleLeftBarButtonItem(){
-        //        dismiss(animated: true, completion: nil)
-        navigationController?.popViewController(animated: true)
-    }
+    @objc func handleOpenImagePickerButton() { present(myImagePicker, animated: true) }
+    @objc func handleShowImageSavedButton() { savedImageView.isHidden = false }
+    @objc func handleLeftBarButtonItem(){ navigationController?.popViewController(animated: true)}
     
     
     //MARK:- Image Picker Controller
@@ -69,7 +60,6 @@ extension ViewController: UIImagePickerControllerDelegate, UINavigationControlle
         //        let destPathString = documentsURL[0].appendingPathComponent("Media").path   //string
         
         let imageFileName = imageURL.lastPathComponent
-        //        let finalDestUNC = destPathUNC.appendingPathComponent("3E59691E-831F-4A3F-B3B6-4BD1909019BE.png") //fileName
         let finalDestUNC = destPathUNC.appendingPathComponent(imageFileName) //fileName
         
         do {
