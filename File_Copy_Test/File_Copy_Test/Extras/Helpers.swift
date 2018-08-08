@@ -31,3 +31,9 @@ func loadFileArray(){
         print(error)
     }
 }
+
+//func setView() {
+//    view = UIView()
+//    view.frame = UIScreen.main.bounds
+//    view.backgroundColor = UIColor.blue
+//}

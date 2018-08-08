@@ -33,11 +33,15 @@ extension ViewController {
                 if let tempFile = UIImage(named: eachFile.path)  //named = file Name
                 {
                     fileImageArray.append(tempFile)
+                    fileImageUNCStringArray.append(eachFile.path)
                 }
             }
             // let tempVC = ImageVC()
             let tempVC = ImageVC2()
             tempVC.allImages = fileImageArray
+            tempVC.allImagePaths = fileImageUNCStringArray
+                
+                
             navigationController?.pushViewController(tempVC, animated: true)
         } catch {}
         
