@@ -19,9 +19,9 @@ class ImageVC: ViewController {
     var imageStackView : UIStackView = {
         var tempStackView = UIStackView()
         tempStackView.axis = .horizontal
-//        tempStackView.distribution = .fillProportionally
-//        tempStackView.alignment = .center
         tempStackView.spacing = 0
+        
+        tempStackView.alignment = .center
         tempStackView.translatesAutoresizingMaskIntoConstraints = false
         return tempStackView
     }()
@@ -37,34 +37,22 @@ class ImageVC: ViewController {
         return tempScrollView
     }()
     
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
-    ////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //MARK:- My Functions
     
     func buildImageStack(){
         for eachImage in allImages {
-            print("ADDING IMAGE TO IMAGESTACK()")
-          
             let tempImageView = UIImageView(image: eachImage)
-            
             let width = view.frame.width
             let height = view.frame.width
-            
             tempImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
             tempImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
-            
-            
-//            let tempImageView = UIImageView()
-//            tempImageView.image = eachImage
-//            tempImageView.contentMode = .scaleAspectFit
-//            tempImageView.translatesAutoresizingMaskIntoConstraints = false
-//            tempImageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-            
             imageStackView.addArrangedSubview(tempImageView)        
         }
         myScrollView.addSubview(imageStackView)
     }
     
-    
+
+    //MARK:- Default Functions
     override func viewDidLoad() {
 
         buildImageStack()
@@ -80,7 +68,7 @@ class ImageVC: ViewController {
             imageStackView.bottomAnchor.constraint(equalTo: myScrollView.bottomAnchor),
             imageStackView.leadingAnchor.constraint(equalTo: myScrollView.leadingAnchor),
             imageStackView.trailingAnchor.constraint(equalTo: myScrollView.trailingAnchor),
-
+            imageStackView.centerYAnchor.constraint(equalTo: view.centerYAnchor)
             ])
     }
     
