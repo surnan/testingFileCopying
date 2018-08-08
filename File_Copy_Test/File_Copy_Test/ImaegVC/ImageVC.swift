@@ -9,16 +9,19 @@
 import UIKit
 
 class ImageVC: ViewController {
-    var myImageView: UIImageView?
-    var finalImage: UIImage?
     
+    //MARK:- Variables passed in
     var allImages = [UIImage]()
+    var allImagePaths = [String]()
     
+    
+    //MARK:- Local Variables
     var imageStackView : UIStackView = {
         var tempStackView = UIStackView()
         tempStackView.axis = .horizontal
-        tempStackView.distribution = .fillProportionally
-        tempStackView.spacing = 25
+//        tempStackView.distribution = .fillProportionally
+//        tempStackView.alignment = .center
+        tempStackView.spacing = 0
         tempStackView.translatesAutoresizingMaskIntoConstraints = false
         return tempStackView
     }()
@@ -26,7 +29,7 @@ class ImageVC: ViewController {
     var myScrollView: UIScrollView = {
         var tempScrollView = UIScrollView()
 //        tempScrollView.isPagingEnabled = true
-        tempScrollView.backgroundColor = UIColor.red
+        tempScrollView.backgroundColor = UIColor.black
         tempScrollView.isDirectionalLockEnabled = true
         tempScrollView.bounces = false
         tempScrollView.isUserInteractionEnabled = true
@@ -40,56 +43,65 @@ class ImageVC: ViewController {
     func buildImageStack(){
         for eachImage in allImages {
             print("ADDING IMAGE TO IMAGESTACK()")
-            let tempImageView = UIImageView()
-            tempImageView.isUserInteractionEnabled = true
-            tempImageView.image = eachImage
-            tempImageView.clipsToBounds = true
-        
-
-            tempImageView.contentMode = .scaleAspectFit
+          
+            let tempImageView = UIImageView(image: eachImage)
+            
+            let width = view.frame.width
+            let height = view.frame.width
+            
+            tempImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
+            tempImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
             
             
-            
-            
+//            let tempImageView = UIImageView()
+//            tempImageView.image = eachImage
+//            tempImageView.contentMode = .scaleAspectFit
 //            tempImageView.translatesAutoresizingMaskIntoConstraints = false
-//            tempImageView.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor).isActive = true
-//            tempImageView.widthAnchor.constraint(equalTo: view.widthAnchor).isActive = true
+//            tempImageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
             
-            tempImageView.heightAnchor.constraint(equalToConstant: 500).isActive = true
-//            tempImageView.heightAnchor.constraint(equalTo: view.heightAnchor).isActive = true
-            
-            
-        
-            
-            imageStackView.addArrangedSubview(tempImageView)
+            imageStackView.addArrangedSubview(tempImageView)        
         }
         myScrollView.addSubview(imageStackView)
     }
     
     
-    func setView() {
-        view = UIView()
-        view.frame = UIScreen.main.bounds
-        view.backgroundColor = UIColor.blue
-    }
-               
     override func viewDidLoad() {
-        setView()
-        
-        [myScrollView].forEach{view.addSubview($0)}
+
         buildImageStack()
-        
+        [myScrollView].forEach{view.addSubview($0)}
+
         NSLayoutConstraint.activate([
-            myScrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-            myScrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            myScrollView.topAnchor.constraint(equalTo: view.topAnchor),
+            myScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
             myScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             myScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            
+
             imageStackView.topAnchor.constraint(equalTo: myScrollView.topAnchor),
             imageStackView.bottomAnchor.constraint(equalTo: myScrollView.bottomAnchor),
             imageStackView.leadingAnchor.constraint(equalTo: myScrollView.leadingAnchor),
             imageStackView.trailingAnchor.constraint(equalTo: myScrollView.trailingAnchor),
-            ///////////////////imageStackView.widthAnchor.constraint(equalTo: view.widthAnchor )
+
             ])
     }
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 }

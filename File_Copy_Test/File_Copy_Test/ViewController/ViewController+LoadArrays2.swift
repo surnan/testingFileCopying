@@ -36,8 +36,34 @@ extension ViewController {
                     fileImageUNCStringArray.append(eachFile.path)
                 }
             }
-            // let tempVC = ImageVC()
-            let tempVC = ImageVC2()
+            
+            
+            
+            
+            
+            
+            
+            
+             let tempVC = ImageVC()
+//            let tempVC = ImageVC2()
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
             tempVC.allImages = fileImageArray
             tempVC.allImagePaths = fileImageUNCStringArray
                 
