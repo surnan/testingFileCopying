@@ -1,4 +1,4 @@
-//
+   //
 //  ImageVC2.swift
 //  File_Copy_Test
 //
@@ -11,7 +11,7 @@ import UIKit
 class ImageVC2: ViewController {
     
     //MARK:- Variables passed in
-    var allImages = [UIImage]()
+//    var allImages = [UIImage]()
     var allImagePaths = [String]()
     
     //MARK: Indices to navigate arrays passed in
@@ -25,15 +25,17 @@ class ImageVC2: ViewController {
     
     //MARK:- LOCAL Variables
     var currentImageView : UIImageView = {
-        let tempImageView = UIImageView()
-        tempImageView.image = #imageLiteral(resourceName: "my_template_options")
+//        let tempImageView = UIImageView()
+//        tempImageView.image = #imageLiteral(resourceName: "my_template_options")
+        
+        let tempImageView = UIImageView(image: #imageLiteral(resourceName: "my_template_options"))
         tempImageView.translatesAutoresizingMaskIntoConstraints = false
         return tempImageView
     }()
     
+    var mySwipeGesture : UISwipeGestureRecognizer!
     
     //MARK:- Gesture Recognizer
-    var mySwipeGesture : UISwipeGestureRecognizer!
     func  setupGestures(){
         [UISwipeGestureRecognizerDirection.right,
          UISwipeGestureRecognizerDirection.left,
@@ -50,14 +52,12 @@ class ImageVC2: ViewController {
         case .left:
             currentIndex = min(currentIndex + 1, imageIndexMax)
             currentImageView.image = convertPathToImage(path: allImagePaths[currentIndex])
-        //            currentImageView.image = allImages[currentIndex]
         case .right:
             currentIndex = max(imageIndexMin, currentIndex - 1)
             currentImageView.image = convertPathToImage(path: allImagePaths[currentIndex])
-        //            currentImageView.image = allImages[currentIndex]
-        case .up: print("Go ---> Up")
-        case .down: print("Go ---> Down")
-        default: print("DEFAULT CASE ???")
+        case .up: fallthrough
+        case .down: fallthrough
+        default: print("Swype not Right/Left")
         }
     }
     
@@ -71,8 +71,8 @@ class ImageVC2: ViewController {
     override func viewDidLoad() {
         
         setupGestures()
+        currentImageView.image = convertPathToImage(path: allImagePaths[currentIndex])
         
-        currentImageView.image = allImages[currentIndex]
         [currentImageView].forEach{view.addSubview($0)}
         
         NSLayoutConstraint.activate([
@@ -82,8 +82,6 @@ class ImageVC2: ViewController {
             currentImageView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             ])
         
-        print(allImages)
-        print(allImagePaths)
-        
+//        print(allImages)  //To avoid warning when compiling
     }
 }

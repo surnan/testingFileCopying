@@ -19,10 +19,9 @@ class ImageVC: ViewController {
     var imageStackView : UIStackView = {
         var tempStackView = UIStackView()
         tempStackView.axis = .horizontal
-        tempStackView.spacing = 0
-        
-        tempStackView.alignment = .center
+//        tempStackView.spacing = 10
         tempStackView.translatesAutoresizingMaskIntoConstraints = false
+        tempStackView.alignment = .center
         return tempStackView
     }()
     
@@ -43,7 +42,16 @@ class ImageVC: ViewController {
         for eachImage in allImages {
             let tempImageView = UIImageView(image: eachImage)
             let width = view.frame.width
-            let height = view.frame.width
+            let height = view.frame.height
+            
+            
+
+//            tempImageView.contentMode = .scaleAspectFill
+//            tempImageView.contentMode = .scaleToFill
+//            tempImageView.contentMode = .scaleAspectFit
+            
+                  
+            
             tempImageView.widthAnchor.constraint(equalToConstant: width).isActive = true
             tempImageView.heightAnchor.constraint(equalToConstant: height).isActive = true
             imageStackView.addArrangedSubview(tempImageView)        
@@ -55,6 +63,8 @@ class ImageVC: ViewController {
     //MARK:- Default Functions
     override func viewDidLoad() {
 
+        view.backgroundColor = UIColor.white
+        
         buildImageStack()
         [myScrollView].forEach{view.addSubview($0)}
 

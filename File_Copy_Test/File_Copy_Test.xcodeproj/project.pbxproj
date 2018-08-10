@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842DE777211D1094000FA45B /* imageVC3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842DE776211D1094000FA45B /* imageVC3.swift */; };
 		84527BDE2106A7CE00F33C95 /* ViewController+Variables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BDD2106A7CE00F33C95 /* ViewController+Variables.swift */; };
 		84527BE02106A87D00F33C95 /* ViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84527BDF2106A87D00F33C95 /* ViewController+UI.swift */; };
 		84527BE42106AD2E00F33C95 /* CoreDataDB.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 84527BE22106AD2E00F33C95 /* CoreDataDB.xcdatamodeld */; };
@@ -28,6 +29,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842DE776211D1094000FA45B /* imageVC3.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = imageVC3.swift; sourceTree = "<group>"; };
 		84527BDD2106A7CE00F33C95 /* ViewController+Variables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+Variables.swift"; sourceTree = "<group>"; };
 		84527BDF2106A87D00F33C95 /* ViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController+UI.swift"; sourceTree = "<group>"; };
 		84527BE32106AD2E00F33C95 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
@@ -111,14 +113,15 @@
 			path = Extras;
 			sourceTree = "<group>";
 		};
-		849E93292118CFF400D1623F /* ImaegVC */ = {
+		849E93292118CFF400D1623F /* ImageVC */ = {
 			isa = PBXGroup;
 			children = (
 				849E93232113A9A800D1623F /* ImageVC.swift */,
 				849E9327211863D300D1623F /* imageVC2.swift */,
 				849E932A2118D02200D1623F /* imageVC+GestureRecognizer.swift */,
+				842DE776211D1094000FA45B /* imageVC3.swift */,
 			);
-			path = ImaegVC;
+			path = ImageVC;
 			sourceTree = "<group>";
 		};
 		84FBCD8121052897006178E6 = {
@@ -140,7 +143,7 @@
 		84FBCD8C21052897006178E6 /* File_Copy_Test */ = {
 			isa = PBXGroup;
 			children = (
-				849E93292118CFF400D1623F /* ImaegVC */,
+				849E93292118CFF400D1623F /* ImageVC */,
 				84527BEB2106CF6700F33C95 /* ViewController */,
 				84527BEA2106CF5E00F33C95 /* TaskList */,
 				84FBCD9921052898006178E6 /* Info.plist */,
@@ -234,6 +237,7 @@
 				84FBCD8E21052897006178E6 /* AppDelegate.swift in Sources */,
 				84527BED2106D02600F33C95 /* TaskListVC+TableViewController.swift in Sources */,
 				849E932621178D4800D1623F /* ViewController+LoadArrays2.swift in Sources */,
+				842DE777211D1094000FA45B /* imageVC3.swift in Sources */,
 				849E93222112558500D1623F /* Helpers.swift in Sources */,
 				84527BE62106AE2600F33C95 /* CoreDataManager.swift in Sources */,
 				84527BEF2106D08F00F33C95 /* TaskCell.swift in Sources */,

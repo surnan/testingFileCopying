@@ -37,36 +37,13 @@ extension ViewController {
                 }
             }
             
-            
-            
-            
-            
-            
-            
-            
-             let tempVC = ImageVC()
+//             let tempVC = ImageVC()
 //            let tempVC = ImageVC2()
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            tempVC.allImages = fileImageArray
+            let tempVC = ImageVC3()
+
+//            tempVC.allImages = fileImageArray
             tempVC.allImagePaths = fileImageUNCStringArray
-                
+            
                 
             navigationController?.pushViewController(tempVC, animated: true)
         } catch {}

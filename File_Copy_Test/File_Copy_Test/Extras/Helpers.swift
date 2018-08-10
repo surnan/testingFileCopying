@@ -8,6 +8,8 @@
 
 import Foundation
 
+/*
+ 
 func loadFileArray(){
     print("LOAD_FILE_ARRAY")
     
@@ -32,6 +34,11 @@ func loadFileArray(){
     }
 }
 
+ */
+
+ 
+ 
+ 
 //func setView() {
 //    view = UIView()
 //    view.frame = UIScreen.main.bounds
