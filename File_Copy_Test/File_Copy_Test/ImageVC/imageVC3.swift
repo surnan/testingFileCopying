@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ImageVC3: UIViewController {
+class ImageVC3: UIViewController, UIScrollViewDelegate {
     
     //MARK:- Variables set beforehand
     var allImagePaths = [String]()
